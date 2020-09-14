@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zM2-jB-QHv">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Task Detail View Controller-->
+        <scene sceneID="9pM-Uu-sah">
+            <objects>
+                <viewController id="zM2-jB-QHv" customClass="TaskDetailViewController" customModule="Tasks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P7B-Kq-pLR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmK-28-GH9">
+                                <rect key="frame" x="16" y="68" width="382" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pe1-RN-agc">
+                                <rect key="frame" x="16" y="94" width="382" height="13.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nmx-7q-9D3">
+                                <rect key="frame" x="16" y="127.5" width="382" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="qmK-28-GH9" firstAttribute="leading" secondItem="REk-ba-zpe" secondAttribute="leading" constant="16" id="MVT-9M-BQd"/>
+                            <constraint firstItem="REk-ba-zpe" firstAttribute="trailing" secondItem="Nmx-7q-9D3" secondAttribute="trailing" constant="16" id="VGs-hm-zTC"/>
+                            <constraint firstItem="qmK-28-GH9" firstAttribute="top" secondItem="REk-ba-zpe" secondAttribute="top" constant="24" id="X2L-Wy-qTS"/>
+                            <constraint firstItem="Nmx-7q-9D3" firstAttribute="top" secondItem="Pe1-RN-agc" secondAttribute="bottom" constant="20" id="aJj-4v-rdJ"/>
+                            <constraint firstItem="REk-ba-zpe" firstAttribute="trailing" secondItem="qmK-28-GH9" secondAttribute="trailing" constant="16" id="fVL-D8-VQq"/>
+                            <constraint firstItem="Pe1-RN-agc" firstAttribute="top" secondItem="qmK-28-GH9" secondAttribute="bottom" constant="8" id="hHY-eF-4pm"/>
+                            <constraint firstItem="Nmx-7q-9D3" firstAttribute="leading" secondItem="REk-ba-zpe" secondAttribute="leading" constant="16" id="kGI-wg-rRv"/>
+                            <constraint firstItem="REk-ba-zpe" firstAttribute="trailing" secondItem="Pe1-RN-agc" secondAttribute="trailing" constant="16" id="oaI-ZY-CWY"/>
+                            <constraint firstItem="Pe1-RN-agc" firstAttribute="leading" secondItem="REk-ba-zpe" secondAttribute="leading" constant="16" id="zIH-EO-L8g"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="REk-ba-zpe"/>
+                    </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="Pe1-RN-agc" id="ysz-Zx-9dh"/>
+                        <outlet property="infoLabel" destination="Nmx-7q-9D3" id="ajO-Y2-XPl"/>
+                        <outlet property="subtitleLabel" destination="qmK-28-GH9" id="PlL-cf-hmJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rlk-bC-KCk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="424.63768115942031" y="-69.642857142857139"/>
+        </scene>
+    </scenes>
+</document>

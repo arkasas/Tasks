@@ -3,7 +3,8 @@ import Foundation
 struct Task: Equatable {
     let id: Int
     let title: String
-    let description: String
+    let subtitle: String
+    let info: String
     let addDate: String
     let status: Status
 
@@ -16,4 +17,17 @@ struct Task: Equatable {
 
 struct Tasks: Equatable {
     let task: [Task]
+}
+
+extension Task.Status {
+    func toListViewModel() -> TasksListItemViewModel.Status {
+        switch self {
+        case .done:
+            return .done
+        case .inProgress:
+            return .inProgress
+        case .pending:
+            return .pending
+        }
+    }
 }

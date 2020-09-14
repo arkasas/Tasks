@@ -31,7 +31,8 @@ class BaseTasksListViewModel: TasksListViewModel {
     private let tasksUseCase: TasksUseCase
     private let actions: TasksListViewModelActions
     private var tasksLoadResponsibility: Cancellable? { willSet { tasksLoadResponsibility?.cancel() } }
-
+    private var tasks: Tasks?
+    
     init(tasksUseCase: TasksUseCase,
          actions: TasksListViewModelActions) {
         self.tasksUseCase = tasksUseCase
@@ -39,7 +40,8 @@ class BaseTasksListViewModel: TasksListViewModel {
     }
 
     private func appendTasks(_ tasks: Tasks) {
-
+        self.tasks = tasks
+        items.value = tasks.task.map { TasksListItemViewModel(task: $0) }
     }
 
     private func load(query: TaskQuery) {
@@ -71,6 +73,9 @@ extension BaseTasksListViewModel {
     }
 
     func didSelectItem(at index: Int) {
-
+        guard let item = tasks?.task[index] else {
+            return
+        }
+        actions.showTaskDetails(item)
     }
 }

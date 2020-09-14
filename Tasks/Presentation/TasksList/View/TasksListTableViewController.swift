@@ -21,22 +21,17 @@ class TasksListTableViewController: UITableViewController, StoryboardInstantiabl
         viewModel.viewDidLoad()
     }
     
-    // MARK: - Table view data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+    func reload() {
+        tableView.reloadData()
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-    }
-
+    
     private func setupViews() {
         title = viewModel.screenTitle
     }
 
     private func bind(to viewModel: TasksListViewModel) {
-        viewModel.items.observe(on: self) { [weak self] in
-            print($0)
+        viewModel.items.observe(on: self) { [weak self] _ in
+            self?.reload()
         }
         viewModel.query.observe(on: self) { [weak self] in
             print($0)
@@ -44,5 +39,28 @@ class TasksListTableViewController: UITableViewController, StoryboardInstantiabl
         viewModel.error.observe(on: self) { [weak self] in
             print($0)
         }
+    }
+}
+
+// MARK: - Table view data source & delegate
+extension TasksListTableViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.items.value.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TaskTableViewCell.reuseIdentifier,
+                                                       for: indexPath) as? TaskTableViewCell else {
+            assertionFailure("Cannot dequeue reusable cell \(TaskTableViewCell.self) with reuseIdentifier: \(TaskTableViewCell.reuseIdentifier)")
+            return UITableViewCell()
+        }
+        
+        cell.fill(with: viewModel.items.value[indexPath.row])
+        return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        viewModel.didSelectItem(at: indexPath.row)
     }
 }

@@ -4,7 +4,8 @@ struct TasksResponseDTO: Decodable {
     struct TaskDTO: Decodable {
         let id: Int
         let title: String
-        let description: String
+        let subtitle: String
+        let info: String
         let addDate: String
         let status: StatusDTO
     }
@@ -28,7 +29,8 @@ extension TasksResponseDTO.TaskDTO {
     func toDomain() -> Task {
         return Task(id: id,
                     title: title,
-                    description: description,
+                    subtitle: subtitle,
+                    info: info,
                     addDate: addDate,
                     status: status.toDomain())
     }

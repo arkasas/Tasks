@@ -2,6 +2,7 @@ import UIKit
 
 protocol TasksListCoordinatorDependencies {
     func createTasksListViewController(actions: TasksListViewModelActions) -> TasksListTableViewController
+    func createTaskDetailViewController(task: Task) -> TaskDetailViewController
 }
 
 class TasksListCoordinator: Coordinator {
@@ -23,6 +24,7 @@ class TasksListCoordinator: Coordinator {
     }
 
     private func showTaskDetails(_ task: Task) {
-
+        let vc = dependencies.createTaskDetailViewController(task: task)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

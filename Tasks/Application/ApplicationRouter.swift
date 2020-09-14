@@ -21,6 +21,7 @@ class BaseApplicationRouter: NSObject, ApplicationRouter {
     func setupWindow() -> UIWindow {
         let window = UIWindow(frame: UIScreen.main.bounds)
         let navigationController = UINavigationController()
+        navigationController.navigationBar.prefersLargeTitles = true
 
         window.rootViewController = navigationController
         applicationCoordinator = ApplicationCoordinator(navigationController: navigationController,
