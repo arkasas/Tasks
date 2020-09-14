@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B99B1D02250F55D3000E0CDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99B1D01250F55D3000E0CDD /* AppDelegate.swift */; };
-		B99B1D04250F55D3000E0CDD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99B1D03250F55D3000E0CDD /* SceneDelegate.swift */; };
 		B99B1D0B250F55D5000E0CDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B99B1D0A250F55D5000E0CDD /* Assets.xcassets */; };
 		B99B1D0E250F55D5000E0CDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B99B1D0C250F55D5000E0CDD /* LaunchScreen.storyboard */; };
 		B99B1D19250F55D5000E0CDD /* TasksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99B1D18250F55D5000E0CDD /* TasksTests.swift */; };
@@ -65,7 +64,6 @@
 /* Begin PBXFileReference section */
 		B99B1CFE250F55D3000E0CDD /* Tasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B99B1D01250F55D3000E0CDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B99B1D03250F55D3000E0CDD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B99B1D0A250F55D5000E0CDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B99B1D0D250F55D5000E0CDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B99B1D0F250F55D5000E0CDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -193,7 +191,6 @@
 			children = (
 				B9FDA4D5250F9508009DB027 /* DI */,
 				B99B1D01250F55D3000E0CDD /* AppDelegate.swift */,
-				B99B1D03250F55D3000E0CDD /* SceneDelegate.swift */,
 				B99B1D33250F57EA000E0CDD /* ApplicationRouter.swift */,
 				B99B1D41250F5AB2000E0CDD /* ApplicationCoordinator.swift */,
 				B9FDA4BF250F7DA1009DB027 /* ApplicationConfigurations.swift */,
@@ -539,7 +536,6 @@
 				B9FDA4D3250F9411009DB027 /* NetworkService.swift in Sources */,
 				B9FDA4AA250F6024009DB027 /* TasksListViewModel.swift in Sources */,
 				B9FDA4DC250F9E71009DB027 /* BaseTasksRepository.swift in Sources */,
-				B99B1D04250F55D3000E0CDD /* SceneDelegate.swift in Sources */,
 				B9FDA4F1250FA907009DB027 /* CoreDataStorage.xcdatamodeld in Sources */,
 				B9FDA4C2250F7EAD009DB027 /* ApplicationDI.swift in Sources */,
 			);

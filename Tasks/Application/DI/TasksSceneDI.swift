@@ -6,6 +6,7 @@ final class TasksSceneDI {
     }
 
     private let dependencies: Dependencies
+    private lazy var tasksResponseCache: TasksResponseStorage = CoreDataTasksResponseStorage()
     init(dependencies: Dependencies) {
         self.dependencies = dependencies
     }
@@ -16,21 +17,21 @@ final class TasksSceneDI {
     }
 
     func createTasksListViewController(actions: TasksListViewModelActions) -> TasksListTableViewController {
-        return TasksListTableViewController.create(with: <#T##TasksListViewModel#>)
+        return TasksListTableViewController.create(with: createTasksListViewModel(actions: actions))
     }
 
     private func createTasksListViewModel(actions: TasksListViewModelActions) -> TasksListViewModel {
-        return BaseTasksListViewModel(tasksUseCase: <#T##TasksUseCase#>,
+        return BaseTasksListViewModel(tasksUseCase: createTasksUseCase(),
                                       actions: actions)
     }
 
     private func createTasksUseCase() -> TasksUseCase {
-        return BaseTasksUseCase(tasksRepository: <#T##TasksRepository#>
+        return BaseTasksUseCase(tasksRepository: createTasksRepository())
     }
 
     private func createTasksRepository() -> TasksRepository {
         return BaseTasksRepository(dataTransferService: dependencies.apiDataTransferService,
-                                   cache: taskRes)
+                                   cache: tasksResponseCache)
     }
 
 }

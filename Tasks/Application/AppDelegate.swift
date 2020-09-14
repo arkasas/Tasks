@@ -15,7 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         BaseApplicationRouter()
     }()
 
+    var window: UIWindow?
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        window = applicationRouter.setupWindow()
         return applicationRouter.application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 

@@ -1,11 +1,3 @@
-//
-//  TasksListTableViewController.swift
-//  Tasks
-//
-//  Created by Arkadiusz Pituła on 14/09/2020.
-//  Copyright © 2020 arpro. All rights reserved.
-//
-
 import UIKit
 
 class TasksListTableViewController: UITableViewController, StoryboardInstantiable {
@@ -16,10 +8,17 @@ class TasksListTableViewController: UITableViewController, StoryboardInstantiabl
         return view
     }
 
+    static var name: String {
+        return "TasksList"
+    }
+
     private var viewModel: TasksListViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViews()
+        bind(to: viewModel)
+        viewModel.viewDidLoad()
     }
     
     // MARK: - Table view data source
@@ -29,5 +28,21 @@ class TasksListTableViewController: UITableViewController, StoryboardInstantiabl
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0
+    }
+
+    private func setupViews() {
+        title = viewModel.screenTitle
+    }
+
+    private func bind(to viewModel: TasksListViewModel) {
+        viewModel.items.observe(on: self) { [weak self] in
+            print($0)
+        }
+        viewModel.query.observe(on: self) { [weak self] in
+            print($0)
+        }
+        viewModel.error.observe(on: self) { [weak self] in
+            print($0)
+        }
     }
 }

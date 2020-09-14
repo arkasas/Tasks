@@ -4,7 +4,7 @@ final class ApplicationDI {
     lazy var applicationConfigurator = ApplicationConfiguration()
 
     lazy var apiDataService: DataTransferService = {
-        let config = ApiDataNetworkConfig(baseURL: URL(string: "")!)
+        let config = ApiDataNetworkConfig(baseURL: URL(string: "https://gist.githubusercontent.com/arkasas")!)
         let apiDataNetwork = DefaultNetworkService(config: config)
         return DefaultDataTransferService(with: apiDataNetwork)
     }()
