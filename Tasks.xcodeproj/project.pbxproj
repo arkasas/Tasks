@@ -21,6 +21,8 @@
 		B99B1D42250F5AB2000E0CDD /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99B1D41250F5AB2000E0CDD /* ApplicationCoordinator.swift */; };
 		B99B1D45250F5C8D000E0CDD /* TasksListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99B1D44250F5C8D000E0CDD /* TasksListCoordinator.swift */; };
 		B99B1D47250F5DBC000E0CDD /* TasksList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B99B1D46250F5DBC000E0CDD /* TasksList.storyboard */; };
+		B9CB700F2510A59800B7852F /* TaskResponseEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB700D2510A59800B7852F /* TaskResponseEntity+CoreDataClass.swift */; };
+		B9CB70102510A59800B7852F /* TaskResponseEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB700E2510A59800B7852F /* TaskResponseEntity+CoreDataProperties.swift */; };
 		B9FDA4AA250F6024009DB027 /* TasksListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FDA4A9250F6024009DB027 /* TasksListViewModel.swift */; };
 		B9FDA4AC250F61DF009DB027 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FDA4AB250F61DF009DB027 /* Observable.swift */; };
 		B9FDA4AE250F6447009DB027 /* TasksListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FDA4AD250F6447009DB027 /* TasksListItemViewModel.swift */; };
@@ -86,6 +88,8 @@
 		B99B1D41250F5AB2000E0CDD /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		B99B1D44250F5C8D000E0CDD /* TasksListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListCoordinator.swift; sourceTree = "<group>"; };
 		B99B1D46250F5DBC000E0CDD /* TasksList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TasksList.storyboard; sourceTree = "<group>"; };
+		B9CB700D2510A59800B7852F /* TaskResponseEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TaskResponseEntity+CoreDataClass.swift"; path = "Tasks/Data/PersistentStorages/CoreDataStorage/TaskResponseEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B9CB700E2510A59800B7852F /* TaskResponseEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TaskResponseEntity+CoreDataProperties.swift"; path = "Tasks/Data/PersistentStorages/CoreDataStorage/TaskResponseEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B9FDA4A9250F6024009DB027 /* TasksListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListViewModel.swift; sourceTree = "<group>"; };
 		B9FDA4AB250F61DF009DB027 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		B9FDA4AD250F6447009DB027 /* TasksListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListItemViewModel.swift; sourceTree = "<group>"; };
@@ -175,6 +179,8 @@
 		B99B1CF5250F55D3000E0CDD = {
 			isa = PBXGroup;
 			children = (
+				B9CB700D2510A59800B7852F /* TaskResponseEntity+CoreDataClass.swift */,
+				B9CB700E2510A59800B7852F /* TaskResponseEntity+CoreDataProperties.swift */,
 				B99B1D00250F55D3000E0CDD /* Tasks */,
 				B99B1D17250F55D5000E0CDD /* TasksTests */,
 				B99B1D22250F55D5000E0CDD /* TasksUITests */,
@@ -551,9 +557,11 @@
 				B9FDA4B8250F68E4009DB027 /* Cancellable.swift in Sources */,
 				B9FDA4AC250F61DF009DB027 /* Observable.swift in Sources */,
 				B9FDA4B1250F6669009DB027 /* Task.swift in Sources */,
+				B9CB700F2510A59800B7852F /* TaskResponseEntity+CoreDataClass.swift in Sources */,
 				B9FDA4BC250F6957009DB027 /* TasksRepository.swift in Sources */,
 				B9FDA4E3250FA09C009DB027 /* TasksRequestDTO+Mapping.swift in Sources */,
 				B9FDA4D1250F9411009DB027 /* NetworkConfig.swift in Sources */,
+				B9CB70102510A59800B7852F /* TaskResponseEntity+CoreDataProperties.swift in Sources */,
 				B9FDA4E8250FA4A0009DB027 /* RepositoryResponsibility.swift in Sources */,
 				B9FDA4D7250F9518009DB027 /* TasksSceneDI.swift in Sources */,
 				B9FDA4D9250F9D45009DB027 /* StoryboardInstantiable.swift in Sources */,

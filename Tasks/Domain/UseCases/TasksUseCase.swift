@@ -1,7 +1,9 @@
 protocol TasksUseCase {
     func execute(requestValue: TasksUseCaseRequestValue,
-                 cached: @escaping (Tasks) -> Void,
                  completion: @escaping (Result<Tasks, Error>) -> Void) -> Cancellable
+
+    func updateStoredMemeory(task: Task,
+                             completion: @escaping (Bool) -> Void)
 }
 
 final class BaseTasksUseCase: TasksUseCase {
@@ -13,11 +15,13 @@ final class BaseTasksUseCase: TasksUseCase {
     }
 
     func execute(requestValue: TasksUseCaseRequestValue,
-                 cached: @escaping (Tasks) -> Void,
                  completion: @escaping (Result<Tasks, Error>) -> Void) -> Cancellable {
         return tasksRepository.fetchTasksList(query: requestValue.query,
-                                              cached: cached,
                                               completion: completion)
+    }
+
+    func updateStoredMemeory(task: Task, completion: @escaping (Bool) -> Void) {
+        tasksRepository.updateTask(task: task, completion: completion)
     }
 }
 

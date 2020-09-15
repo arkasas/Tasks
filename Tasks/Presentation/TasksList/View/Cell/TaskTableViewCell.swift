@@ -6,6 +6,7 @@ class TaskTableViewCell: UITableViewCell {
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var subtitleLabel: UILabel!
     @IBOutlet private var dateLabel: UILabel!
+    @IBOutlet private var favouriteButton: UIButton!
 
     private var viewModel: TasksListItemViewModel!
 
@@ -15,5 +16,9 @@ class TaskTableViewCell: UITableViewCell {
         titleLabel.text = viewModel.title
         subtitleLabel.text = viewModel.subtitle
         dateLabel.text = viewModel.addDate
+    }
+
+    @IBAction private func didSelectFavourite() {
+        viewModel.didSelectFavouriteItem()
     }
 }

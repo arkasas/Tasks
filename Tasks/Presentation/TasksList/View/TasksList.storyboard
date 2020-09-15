@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pdi-tZ-voB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pdi-tZ-voB">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16097.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -41,31 +41,35 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ofc-Gj-Mkx">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="px3-W8-IwQ">
                                             <rect key="frame" x="20" y="34.5" width="30" height="30"/>
-                                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="30" id="S2T-yC-jlN"/>
-                                                <constraint firstAttribute="width" constant="30" id="fOy-MZ-Eqp"/>
+                                                <constraint firstAttribute="height" constant="30" id="NYg-6N-QZ7"/>
+                                                <constraint firstAttribute="width" constant="30" id="Nyu-Gs-CCh"/>
                                             </constraints>
-                                        </imageView>
+                                            <state key="normal" image="baseline_star_border_black_48pt"/>
+                                            <connections>
+                                                <action selector="didSelectFavourite" destination="wEw-WT-haR" eventType="touchUpInside" id="EfI-cK-g0c"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="7XM-nk-Jf1" firstAttribute="leading" secondItem="FYg-5o-AMq" secondAttribute="trailing" constant="12" id="3yk-eM-nfn"/>
                                         <constraint firstItem="7XM-nk-Jf1" firstAttribute="trailing" secondItem="Phn-YN-wdA" secondAttribute="trailingMargin" id="6wb-f8-aTa"/>
-                                        <constraint firstItem="FYg-5o-AMq" firstAttribute="leading" secondItem="ofc-Gj-Mkx" secondAttribute="trailing" constant="12" id="BHv-J4-dDZ"/>
-                                        <constraint firstItem="ofc-Gj-Mkx" firstAttribute="leading" secondItem="Phn-YN-wdA" secondAttribute="leadingMargin" id="Va6-zy-iYk"/>
                                         <constraint firstItem="7XM-nk-Jf1" firstAttribute="bottom" secondItem="FYg-5o-AMq" secondAttribute="bottom" id="c8x-Vd-PfZ"/>
                                         <constraint firstItem="tON-mz-pm0" firstAttribute="trailing" secondItem="7XM-nk-Jf1" secondAttribute="trailing" id="cY9-K1-ac5"/>
+                                        <constraint firstItem="px3-W8-IwQ" firstAttribute="centerY" secondItem="Phn-YN-wdA" secondAttribute="centerY" id="dqe-l2-rDS"/>
                                         <constraint firstItem="tON-mz-pm0" firstAttribute="leading" secondItem="FYg-5o-AMq" secondAttribute="leading" id="eCT-wf-AjN"/>
                                         <constraint firstItem="FYg-5o-AMq" firstAttribute="top" secondItem="Phn-YN-wdA" secondAttribute="topMargin" constant="10" id="ia6-lA-G0w"/>
-                                        <constraint firstItem="ofc-Gj-Mkx" firstAttribute="centerY" secondItem="Phn-YN-wdA" secondAttribute="centerY" id="pon-Ib-4tu"/>
+                                        <constraint firstItem="px3-W8-IwQ" firstAttribute="leading" secondItem="Phn-YN-wdA" secondAttribute="leadingMargin" id="oZk-iw-IyI"/>
+                                        <constraint firstItem="FYg-5o-AMq" firstAttribute="leading" secondItem="px3-W8-IwQ" secondAttribute="trailing" constant="12" id="yP5-Yq-1dF"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="tON-mz-pm0" secondAttribute="bottom" constant="15.5" id="yff-CK-EwS"/>
                                         <constraint firstItem="tON-mz-pm0" firstAttribute="top" secondItem="FYg-5o-AMq" secondAttribute="bottom" constant="12" id="zXE-oG-Q9B"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="dateLabel" destination="7XM-nk-Jf1" id="2Q1-WW-llE"/>
+                                    <outlet property="favouriteButton" destination="px3-W8-IwQ" id="HY8-AV-jlQ"/>
                                     <outlet property="subtitleLabel" destination="tON-mz-pm0" id="EaF-4K-Hyx"/>
                                     <outlet property="titleLabel" destination="FYg-5o-AMq" id="lWy-GW-TqM"/>
                                 </connections>
@@ -83,6 +87,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="star" catalog="system" width="128" height="116"/>
+        <image name="baseline_star_border_black_48pt" width="48" height="48"/>
     </resources>
 </document>

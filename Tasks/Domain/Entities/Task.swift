@@ -7,11 +7,24 @@ struct Task: Equatable {
     let info: String
     let addDate: String
     let status: Status
+    var isFavourite: Bool?
 
-    enum Status {
+    enum Status: String {
         case done
         case inProgress
         case pending
+
+        init(value: String) {
+            if value == Status.done.rawValue {
+                self = .done
+            } else if value == Status.inProgress.rawValue {
+                self = .inProgress
+            } else if value == Status.pending.rawValue {
+                self = .pending
+            } else {
+                self = .pending
+            }
+        }
     }
 }
 
@@ -20,7 +33,7 @@ struct Tasks: Equatable {
 }
 
 extension Task.Status {
-    func toListViewModel() -> TasksListItemViewModel.Status {
+    func toListViewModel() -> BaseTasksListItemViewModel.Status {
         switch self {
         case .done:
             return .done

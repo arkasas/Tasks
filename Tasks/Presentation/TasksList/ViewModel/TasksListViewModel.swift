@@ -7,6 +7,8 @@ struct TasksListViewModelActions {
 protocol TasksListViewModelInput {
     func viewDidLoad()
     func didSelectItem(at index: Int)
+    func didAddItemToFavourite(itemId: Int)
+    func didRemoveItemFromFavourite(itemId: Int)
 }
 
 protocol TasksListViewModelOutput {
@@ -32,7 +34,7 @@ class BaseTasksListViewModel: TasksListViewModel {
     private let actions: TasksListViewModelActions
     private var tasksLoadResponsibility: Cancellable? { willSet { tasksLoadResponsibility?.cancel() } }
     private var tasks: Tasks?
-    
+
     init(tasksUseCase: TasksUseCase,
          actions: TasksListViewModelActions) {
         self.tasksUseCase = tasksUseCase
@@ -41,7 +43,13 @@ class BaseTasksListViewModel: TasksListViewModel {
 
     private func appendTasks(_ tasks: Tasks) {
         self.tasks = tasks
-        items.value = tasks.task.map { TasksListItemViewModel(task: $0) }
+
+        items.value = tasks
+            .task
+            .map { BaseTasksListItemViewModel(
+                actions: TasksListItemViewModelActions(reverseTaskFavourite: reverseTask),
+                task: $0)
+            }
     }
 
     private func load(query: TaskQuery) {
@@ -49,7 +57,6 @@ class BaseTasksListViewModel: TasksListViewModel {
 
         tasksLoadResponsibility = tasksUseCase.execute(
             requestValue: .init(query: query),
-            cached: appendTasks,
             completion: { [weak self] result in
                 switch result {
                 case .success(let tasks):
@@ -64,6 +71,17 @@ class BaseTasksListViewModel: TasksListViewModel {
         self.error.value = "Failed loading movies"
     }
 
+    private func reverseTask(_ taskId: Int, completion: (Bool) -> Void) {
+        guard var task = tasks?.task.filter { $0.id == taskId }.first else {
+            completion(false)
+            return
+        }
+
+        task.isFavourite = !(task.isFavourite ?? false)
+        tasksUseCase.updateStoredMemeory(task: task) { result in
+            print(result)
+        }
+    }
 }
 
 // MARK: Input
@@ -77,5 +95,13 @@ extension BaseTasksListViewModel {
             return
         }
         actions.showTaskDetails(item)
+    }
+
+    func didAddItemToFavourite(itemId: Int) {
+        print(itemId)
+    }
+
+    func didRemoveItemFromFavourite(itemId: Int) {
+        print(itemId)
     }
 }

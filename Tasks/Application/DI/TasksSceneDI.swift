@@ -6,7 +6,7 @@ final class TasksSceneDI {
     }
 
     private let dependencies: Dependencies
-    private lazy var tasksResponseCache: TasksResponseStorage = CoreDataTasksResponseStorage()
+    private lazy var tasksResponseCache: TasksStorage = CoreDataTasksResponseStorage()
     init(dependencies: Dependencies) {
         self.dependencies = dependencies
     }
