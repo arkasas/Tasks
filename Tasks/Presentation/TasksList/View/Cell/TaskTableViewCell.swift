@@ -16,9 +16,18 @@ class TaskTableViewCell: UITableViewCell {
         titleLabel.text = viewModel.title
         subtitleLabel.text = viewModel.subtitle
         dateLabel.text = viewModel.addDate
+        if viewModel.isFavourite {
+            addImageToFavouriteButton("baseline_star_black_48pt")
+        } else {
+            addImageToFavouriteButton("baseline_star_border_black_48pt")
+        }
     }
 
     @IBAction private func didSelectFavourite() {
         viewModel.didSelectFavouriteItem()
+    }
+    
+    private func addImageToFavouriteButton(_ imageName: String) {
+        favouriteButton.setImage(UIImage(named: imageName), for: .normal)
     }
 }

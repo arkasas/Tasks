@@ -1,6 +1,10 @@
 import Foundation
 
 struct Task: Equatable {
+    static func == (lhs: Task, rhs: Task) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     let id: Int
     let title: String
     let subtitle: String
@@ -29,7 +33,7 @@ struct Task: Equatable {
 }
 
 struct Tasks: Equatable {
-    let task: [Task]
+    var task: [Task]
 }
 
 extension Task.Status {

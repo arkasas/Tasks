@@ -11,6 +11,7 @@ protocol TasksListItemViewModelOutput {
     var title: String { get }
     var subtitle: String { get }
     var addDate: String { get }
+    var isFavourite: Bool { get }
 }
 
 protocol TasksListItemViewModel: TasksListItemViewModelInput, TasksListItemViewModelOutput {}
@@ -31,7 +32,8 @@ struct BaseTasksListItemViewModel: Equatable, TasksListItemViewModel {
     let subtitle: String
     let addDate: String
     let status: Status
-
+    var isFavourite: Bool
+    
     private let actions: TasksListItemViewModelActions
     init(actions: TasksListItemViewModelActions,
          task: Task) {
@@ -41,6 +43,7 @@ struct BaseTasksListItemViewModel: Equatable, TasksListItemViewModel {
         subtitle = task.subtitle
         addDate = task.addDate
         status = task.status.toListViewModel()
+        isFavourite = task.isFavourite ?? false
     }
 }
 

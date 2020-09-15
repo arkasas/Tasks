@@ -79,7 +79,7 @@ class BaseTasksListViewModel: TasksListViewModel {
 
         task.isFavourite = !(task.isFavourite ?? false)
         tasksUseCase.updateStoredMemeory(task: task) { result in
-            print(result)
+            self.load(query: .init(query: self.query.value))
         }
     }
 }
