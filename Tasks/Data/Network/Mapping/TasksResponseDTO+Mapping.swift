@@ -7,6 +7,7 @@ struct TasksResponseDTO: Decodable {
         let subtitle: String
         let info: String
         let addDate: String
+        let image: String
         let status: StatusDTO
     }
 
@@ -32,7 +33,8 @@ extension TasksResponseDTO.TaskDTO {
                     subtitle: subtitle,
                     info: info,
                     addDate: addDate,
-                    status: status.toDomain())
+                    status: status.toDomain(),
+                    image: image)
     }
 }
 

@@ -20,9 +20,10 @@ class TaskDetailViewController: UIViewController, StoryboardInstantiable {
         return "TaskDetail"
     }
 
-    @IBOutlet private var subtitleLabel: UILabel!
-    @IBOutlet private var dateLabel: UILabel!
-    @IBOutlet private var infoLabel: UILabel!
+    @IBOutlet private(set) var subtitleLabel: UILabel!
+    @IBOutlet private(set) var dateLabel: UILabel!
+    @IBOutlet private(set) var infoLabel: UILabel!
+    @IBOutlet private(set) var imageView: UIImageView!
 
     private var viewModel: TaskDetailViewModel!
 
@@ -36,5 +37,6 @@ class TaskDetailViewController: UIViewController, StoryboardInstantiable {
         subtitleLabel.text = viewModel.subtitle
         dateLabel.text = viewModel.date
         infoLabel.text = viewModel.info
+        imageView.setImage(from: viewModel.imageURL)
     }
 }

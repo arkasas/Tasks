@@ -24,6 +24,7 @@ extension TaskResponseEntity {
     @NSManaged public var status: String?
     @NSManaged public var subtitle: String?
     @NSManaged public var title: String?
+    @NSManaged public var image: String?
 
 }
 
@@ -36,6 +37,7 @@ extension TaskResponseEntity {
             info: info ?? "",
             addDate: created ?? "",
             status: Task.Status(value: status ?? ""),
-            isFavourite: favourite)
+            isFavourite: favourite,
+            image: image ?? "")
     }
 }

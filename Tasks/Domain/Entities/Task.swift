@@ -12,6 +12,7 @@ struct Task: Equatable {
     let addDate: String
     let status: Status
     var isFavourite: Bool?
+    let image: String
 
     enum Status: String {
         case done

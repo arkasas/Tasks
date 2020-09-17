@@ -1,6 +1,6 @@
 struct APIEndpoints {
     static func getTask(with requestDTO: TasksRequestDTO) -> Endpoint<TasksResponseDTO> {
-        return Endpoint(path: "/b315fa8615546744e41079bec3eaedea/raw/b2835348a5b2a7a509e3ae06bde3eea1d9f45850/tasks.json",
+        return Endpoint(path: "/f027fa417c29ee34a18d6bece4e530f1/raw/54d3514c92288502405702e20286b011b93324ad/tasks.json",
                         method: .get,
                         queryParametersEncodable: requestDTO)
     }
